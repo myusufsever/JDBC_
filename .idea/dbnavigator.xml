@@ -55,16 +55,43 @@ update users set mobile= 33333333 where username like '%e_';
  --"users" tablosunda sondan bir önceki harfi e olan
  --  "usernamelerin" "mobile" numarasını update ediniz.
  
- UPDATE users SET mobile=444444 WHERE username LIKE'%e_';]]></console>
+ update users set mobile=444444 where username like'%e_';
+
+select user_id , group_concat(browser,' - ', os) as browser_os from user_logins group by user_id;
+
+--admin_password_resets tablosuna yeni (id,email,token,status,created_at datalarla)
+-- veri girisi yapiniz.
+insert into admin_password_resets(id,email,token,status) values(?,?,?,?);
+
+-- "id=800" olan kullanıcının "is_read=0" olan bildirimlerini
+-- '1' Olarak Update edip doğrulayınız.
+
+ update admin_notifications set is_read = ? where id = ?;
+ 
+ select is_read from admin_notifications where id=800;
+ 
+ --  Scenario: "update_logs" tablosunda "version=? " ve "id=?" olan datanın "update_log"
+ --  değerini update edip doğrulayınız.
+ 
+ 
+ update update_logs set update_log=? where version=? and id=?;
+insert into update_logs (id,version,update_log,created_at) values(?,?,?,?);
+
+--support_attachments" tablosunda "support_message_id=?
+-- değerine göre  bir dosyayı siliniz ve silindiğini doğrulayınız.
+
+
+
+INSERT INTO support_attachments (id, support_message_id, attachment, created_at) VALUES(?, ?, ?, ?)";
+
+delete from u168183796_qaloantec.support_attachments where support_message_id = ?";]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="23d11e04-c1fc-4444-8821-a80256203100" object-ref="consoles/qa_loantech" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="23d11e04-c1fc-4444-8821-a80256203100" />
